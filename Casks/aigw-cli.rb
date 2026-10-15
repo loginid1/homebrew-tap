@@ -39,4 +39,16 @@ cask "aigw-cli" do
   binary "aigw"
 
   # No zap stanza required
+
+  caveats <<~EOS
+    LoginID AI Gateway
+
+        _       ___     ____   __        __
+       / \\     |_ _|   / ___|  \\ \\      / /
+      / _ \\     | |   | |  _    \\ \\ /\\ / /
+     / ___ \\    | |   | |_| |    \\ V  V /
+    /_/   \\_\\  |___|   \\____|     \\_/\\_/
+
+    Get started: aigw --help
+  EOS
 end
