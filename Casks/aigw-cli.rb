@@ -12,6 +12,11 @@ cask "aigw-cli" do
       url "https://github.com/loginid1/loginid-aigw-cli/releases/download/v#{version}/aigw_#{version}_darwin_amd64.zip"
     end
   end
+  on_macos do
+    postflight_steps do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/aigw"]
+    end
+  end
   on_linux do
     on_arm do
       sha256 "0b60fcfe0059a8c32f9fe991b039e29515418f9f115e7bdbf3ed6e8ec5af0e02"
@@ -32,12 +37,6 @@ cask "aigw-cli" do
   end
 
   binary "aigw"
-
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/aigw"]
-    end
-  end
 
   # No zap stanza required
 end
