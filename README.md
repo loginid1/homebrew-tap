@@ -4,7 +4,7 @@ Install the LoginID AI Gateway CLI:
 
 ```sh
 brew install loginid1/tap/aigw-cli
-aigw --version
+aigw version
 ```
 
 Upgrade with `brew upgrade aigw-cli`.
